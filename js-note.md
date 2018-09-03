@@ -24,6 +24,9 @@ function downloaded(){
                     text.innerHTML='我不是微信'
                 }
             }
+
+
+            
 //移动端rem
 window.onload = function(){
     /*720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
