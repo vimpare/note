@@ -1,0 +1,114 @@
+wx.uploadFile(OBJECT)
+双加密
+
+====================================
+//分享表格
+  shareExel: function() {
+    var data = {}
+    data.qid = this.data.qid;
+    data.dealerId = this.data.dealerId;
+
+    function params(data) {
+      let params = [];
+      for (var pro in data) {
+        if (data.hasOwnProperty(pro)) {
+          params.push(`${pro}=${data[pro]}`);
+        }
+      }
+      return params.join('&');
+    };
+    let _url = '/mini/createExcel?'
+    sign(data, _url).then((paramData) => {
+      console.log(paramData)
+      let url = Host + _url + params(paramData)
+      wx.downloadFile({
+        url: url,
+        header: {},
+        success: function(res) {
+          var filePath = res.tempFilePath;
+          console.log(filePath);
+          wx.saveFile({
+            tempFilePath: filePath,
+            success: function(res) {
+              console.log('下载', res.savedFilePath)
+              var savedFilePath = res.savedFilePath
+              
+              // wx.openDocument({
+              //   filePath: savedFilePath,
+              //   fileType: 'xls',
+              //   success: function(res) {
+              //     console.log('打开文档成功')
+              //   },
+              //   fail: function(res) {
+              //     console.log(res);
+              //   },
+              //   complete: function(res) {
+              //     console.log(res);
+              //   }
+              // })
+
+            },
+            fail: function(res) {
+              console.log(res);
+            },
+            complete: function(res) {
+              console.log(res);
+            }
+          })
+          wx.getSavedFileList({
+            success: function (res) {
+              console.log(res.fileList)
+            }
+          })
+        },
+        fail: function(res) {
+          console.log('文件下载失败');
+        },
+        complete: function(res) {},
+      })
+    });
+
+  }
+==========================================
+
+判断是否为微信浏览器的js代码：
+
+function downloaded(){
+			var ua = navigator.userAgent.toLowerCase();
+			if(ua.match(/MicroMessenger/i)=="micromessenger") {
+				alert("是");
+				
+			} else {
+				location.href="http://emoji.adline.com.cn/"
+			}
+		}
+
+//禁止页面滚动
+function downloaded(){
+                var ua = navigator.userAgent.toLowerCase();
+                // text.innerHTML=ua
+                if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                    text.classList.add("show")
+                    bg0.classList.add('show')
+                    bg0.addEventListener("touchstart",function(e){
+                        e.stopPropagation();
+                        e.preventDefault();
+                    },false);
+                } else {
+                    text.innerHTML='我不是微信'
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

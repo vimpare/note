@@ -23,3 +23,12 @@ Microsoft.AlphaImageLoader是IE滤镜的一种，其主要作用就是对图片�
         scale   :　  缩放图片以适应对象的尺寸边界。
     -src :　  必选项。字符串(String)。使用绝对或相对 url 
         地址指定背景图像。假如忽略此参数，滤镜将不会作用。
+
+**媒体查询**
+```
+@media screen and (max-width: 960px){
+    body{
+    background-color:#FF6699
+    }
+}
+```

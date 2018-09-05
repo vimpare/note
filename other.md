@@ -27,3 +27,6 @@ git config --global user.email "(1)中查看到的邮箱"
 
 
 (4)修改之后，再次提交代码时，我们就可以在github上面看到提交显示的绿点
+
+**idea整理代码：**
+ctrl+alt+l
