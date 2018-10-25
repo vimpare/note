@@ -1,4 +1,5 @@
-###Websocket
+###Websocket###
+HTTP 协议有一个缺陷：通信只能由客户端发起
 是一个持久化的协议
 ```
 function socketConnect(url) {
