@@ -134,6 +134,18 @@ upload: function(_url, src, i, _data) {
 </wxs>
 
 ```
+**小程序返回上一页携带参数：**
 
+```
+let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];
 
+    prevPage.setData({
+      classifyName: name
+    })
+    wx.navigateBack({
+      delta: 1
+
+    })
+```
 
