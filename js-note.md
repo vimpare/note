@@ -171,3 +171,39 @@ function downloaded() {
             }
         }
         ```
+        
+**将JavaScript对象转换为querystring查询字符串**
+
+```
+serialize = function(obj) {
+  var str = [];
+  for (var p in obj)
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    }
+  return str.join("&");
+ 
+}
+ ```
+ **hasOwnProperty()**
+ hasOwnProperty() 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性
+ 
+ // 使用 hasOwnProperty 作为属性名
+        // JavaScript 并没有保护 hasOwnProperty 属性名， 因此某个对象是有可能存在使用这个属性名的属性， 使用外部的 hasOwnProperty 获得正确的结果是需要的：
+```
+var foo = {
+hasOwnProperty: function () {
+    return false;
+},
+bar: 'Here be dragons'
+};
+
+foo.hasOwnProperty('bar'); // 始终返回 false
+
+// 如果担心这种情况，可以直接使用原型链上真正的 hasOwnProperty 方法
+({}).hasOwnProperty.call(foo, 'bar'); // true
+
+// 也可以使用 Object 原型上的 hasOwnProperty 属性
+Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
+
+```
