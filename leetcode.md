@@ -68,3 +68,22 @@ var romanToInt = function (s) {
    return newarr
 };
 ```
+14 最长公共前缀：
+```
+var longestCommonPrefix = function(strs) {
+   var first = strs[0]
+   if(!strs.length){
+       return ''
+   }
+    var str = '';
+    for (var i = 0; i < first.length; i++) {
+        for (var j = 1; j < strs.length; j++) {
+            if (first[i] != strs[j][i]) {
+                return str;
+            }
+        }
+        str += first[i];
+    }
+    return str 
+};
+```
