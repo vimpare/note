@@ -40,3 +40,31 @@ var reverse = function(x) {
 };
 reverse(1534236469)
 ```
+13.罗马数字转整数
+```
+var romanToInt = function (s) {
+    var o = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+    }
+    var sarr = s.split('');
+    var newarr = 0
+    for (let i = 0; i < sarr.length; i++) {
+        var next = sarr[i + 1],
+            now = sarr[i];
+        if (o[next] > o[now]) {
+            newarr += (o[next] - o[now])
+            i++
+        } else {
+            newarr += (o[now])
+        }
+
+    }
+   return newarr
+};
+```
