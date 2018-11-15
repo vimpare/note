@@ -207,3 +207,201 @@ foo.hasOwnProperty('bar'); // 始终返回 false
 Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
 
 ```
+utils.js:
+```
+function formatTime(date,one) {
+  if (!date) {
+    date = new Date();
+  }
+  else{
+    date = new Date(date);
+  }
+
+
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds();
+
+  return [year, month, day].map(formatNumber).join('.') 
+}
+
+function formatNumber(n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+//倒计时,传入秒
+function  countdown(time) {
+  var days = Math.floor(time / 86400)
+  time=time-days*86400
+  var h = Math.floor(time / 3600) < 10 ? '0' + Math.floor(time / 3600) : Math.floor(time / 3600);
+  var m = Math.floor((time / 60 % 60)) < 10 ? '0' + Math.floor((time / 60 % 60)) : Math.floor((time / 60 % 60));
+  var s = Math.floor((time % 60)) < 10 ? '0' + Math.floor((time % 60)) : Math.floor((time % 60));
+  return days+' 天 '+h+' 小时 '+m+' 分 '+s+' 秒'
+}
+
+function formatDistance(distance) {
+  distance = +distance;
+  return distance < 1000 ? Math.round(distance) + 'm' : (distance / 1000).toFixed(1) + 'km';
+}
+
+function isPlainObject(obj) {
+  for (var name in obj) {
+    return false;
+  }
+  return true;
+}
+function iszhongwen(num) {
+
+  return /^[\u4E00-\u9FA5]+$/.test(num);
+}
+
+function isName(num) {
+  return /^[\u4E00-\u9FA5A-Za-z]+$/.test(num);
+}
+function isPhoneNumber(num) {
+  return /^1\d{10}$/.test(num);
+}
+function ValidatePhone(val) {
+  var isPhone = /(^([0\*][0-9\*]{2,3}\s)?([2-9\*][0-9\*]{6,7})+(\-[0-9\*]{1,4})?$)|(^([0\*][0-9\*]{2,3})?([2-9\*][0-9\*]{6,7})+(\-[0-9\*]{1,4})?$)|(^([0\*][0-9\*]{2,3}[\-\*])?([2-9\*][0-9\*]{6,7})+(\-[0-9\*]{1,4})?$)|(^((\(\d{3}\))|(\d{3}\-))?([1\*][3456789\*][0-9\*]{9})$)/;//联系方式
+ 
+  if (isPhone.test(val)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+function isEmail(num) {
+  return /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/.test(num);
+}
+function isNumber(num) {
+  return /^[0-9]*$/.test(num);
+}
+function isPassword(num) {
+  return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/.test(num)
+}
+function isPhoneEmail(num) {
+  return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/.test(num)
+}
+
+function time(time) {
+  return (time && new Date(time).toLocaleDateString().replace(/\//g, '.')) || '';
+}
+function trim(str) {
+  return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+module.exports = {
+  formatTime: formatTime,
+  isPlainObject: isPlainObject,
+  iszhongwen: iszhongwen,
+  isName: isName,
+  isPhoneNumber: isPhoneNumber,
+  isEmail: isEmail,
+  isNumber: isNumber,
+  formatDistance: formatDistance,
+  isPassword: isPassword,
+  isPhoneEmail: isPhoneEmail,
+  time: time,
+  trim: trim,
+  countdown: countdown,
+  ValidatePhone: ValidatePhone
+}
+
+
+let regObj = {
+  nameReg: /^[A-Za-z\u0391-\uFFE5]{2,}$/,
+  phoneReg: /^1\d{2}[\*|\d]{4}\d{4}$/,
+  taxpayeRnoReg: /^([A-Za-z\d]{15}|[A-Za-z\d]{18}|[A-Za-z\d]{20})$/,
+  name: /^[\u0391-\uFFE5]{2,}$/
+}
+
+export {regObj};
+
+export function checkFn(str,_type){
+  switch (_type){
+    case 'userName':
+      return /^[A-Za-z\u0391-\uFFE5]{2,}$/.test(str);
+    case 'mobile':
+      return /^1\d{2}[\*|\d]{4}\d{4}$/.test(str);
+    case 'number':
+      return /^[0-9]$/.test(str);
+    case 'name': 
+      return /^[\u0391-\uFFE5]{2,}$/.test(str);
+    case 'detailAds':
+      return /.{5,}/.test(str);
+    default:
+      return true;
+  }
+}
+export function isEmojiCharacter(substring) {
+  for (var i = 0; i < substring.length; i++) {
+    var hs = substring.charCodeAt(i);
+    if (0xd800 <= hs && hs <= 0xdbff) {
+      if (substring.length > 1) {
+        var ls = substring.charCodeAt(i + 1);
+        var uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
+        if (0x1d000 <= uc && uc <= 0x1f77f) {
+          return true;
+        }
+      }
+    } else if (substring.length > 1) {
+      var ls = substring.charCodeAt(i + 1);
+      if (ls == 0x20e3) {
+        return true;
+      }
+    } else {
+      if (0x2100 <= hs && hs <= 0x27ff) {
+        return true;
+      } else if (0x2B05 <= hs && hs <= 0x2b07) {
+        return true;
+      } else if (0x2934 <= hs && hs <= 0x2935) {
+        return true;
+      } else if (0x3297 <= hs && hs <= 0x3299) {
+        return true;
+      } else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030
+        || hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b
+        || hs == 0x2b50) {
+        return true;
+      }
+    }
+  }
+}
+
+// 获取当前页面
+export function getCurrentPage() {
+  let pages = getCurrentPages(),
+      last = pages.length - 1;
+  return pages[last];
+};
+
+// 格式化数据
+export function formatData(data) {
+  var dataStr = "";
+  for (var key in data) {
+    var value = data[key];
+    if (typeof data[key] == "object") {
+      value = JSON.stringify(value);
+    }
+    dataStr += "&" + key + "=" + value;
+  }
+
+  return dataStr.substr(1) == "" ? "" : "?" + dataStr.substr(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+```
