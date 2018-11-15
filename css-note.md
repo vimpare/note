@@ -146,3 +146,372 @@ css代码如下：
     height: 100%;
 }
 ```
+
+
+**加载转圈样式**
+```
+.i-btn-loading-inner {
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: middle;
+  width: 14px;
+  height: 14px;
+  background: 0 0;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-color: #fff #fff #fff transparent;
+  animation: btn-spin 0.6s linear;
+  animation-iteration-count: infinite;//动画加载次数
+}
+
+.i-btn-disabled {
+  color: #bbbec4 !important;
+  background: #f7f7f7 !important;
+}
+
+.i-btn-inline {
+  display: inline-block;
+}
+
+@keyframes btn-spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+```
+
+
+reset.css：
+```
+.bgf {
+  background: #fff;
+}
+
+image {
+  width: 100%;
+  /* height: 100%; */
+}
+
+.ccc {
+  color: #ccc;
+}
+
+.tc {
+  text-align: center;
+}
+
+swiper {
+  height: 100%;
+}
+
+.pd10 {
+  padding: 10px 0;
+}
+
+.pdrl20 {
+  padding: 0px 20rpx;
+}
+
+.pd2030 {
+  padding: 20rpx 30rpx;
+}
+
+.pd2020 {
+  padding: 20rpx;
+}
+
+.pd20 {
+  padding: 20rpx 0;
+}
+
+.pd3030 {
+  padding: 30rpx 30rpx;
+}
+
+.pd60 {
+  padding: 60rpx 0;
+}
+
+.pdt10 {
+  padding-top: 10rpx;
+}
+
+.pdt20 {
+  padding-top: 20rpx;
+}
+
+.pdb20 {
+  padding-bottom: 20rpx;
+}
+
+.pdall210 {
+  padding: 2rpx 8rpx;
+}
+
+.pdall510 {
+  padding: 5rpx 10rpx;
+}
+
+.pdr20 {
+  padding-right: 20rpx;
+}
+
+.pdr10 {
+  padding-right: 10rpx;
+}
+
+.pdl20 {
+  padding-left: 20rpx;
+}
+
+.pdl30 {
+  padding-left: 30rpx;
+}
+
+.pdl40 {
+  padding-left: 40rpx;
+}
+
+.pdlr16 {
+  padding: 0 16rpx;
+}
+
+.pdlr30 {
+  padding: 0 30rpx;
+}
+
+.mglr16 {
+  margin: 0 16rpx;
+}
+
+.mglr30 {
+  margin: 0 30rpx;
+}
+
+.iconwidth {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.fix {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 9999;
+}
+
+.flex {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flexs {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.flexnowrap {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.fg1 {
+  flex-grow: 1;
+}
+
+.jcontent {
+  justify-content: space-between;
+}
+
+.asfe {
+  align-self: flex-end;
+}
+
+.asfs {
+  align-self: flex-start;
+}
+
+.jcontentc {
+  justify-content: center;
+}
+
+.jcontente {
+  justify-content: flex-end;
+}
+
+.basicolor {
+  color: #f03a58;
+}
+
+.basibg {
+  background: #f03a58;
+}
+
+.basiborder {
+  border: 1rpx solid #f03a58;
+}
+
+.wd100 {
+  width: 100%;
+}
+
+.wd50 {
+  width: 50%;
+}
+
+.wd33 {
+  width: 33%;
+}
+
+.wd21 {
+  width: 21%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.cf {
+  color: #fff;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.mgr30 {
+  margin-right: 30rpx;
+}
+
+.mgr10 {
+  margin-right: 10rpx;
+}
+
+.mgr16 {
+  margin-right: 16rpx;
+}
+
+.mgb10 {
+  margin-bottom: 10rpx;
+}
+
+.mgt20 {
+  margin-top: 20rpx;
+}
+
+.mgb20 {
+  margin-bottom: 20rpx;
+}
+
+.c9 {
+  color: #999;
+}
+
+.c8 {
+  color: #888;
+}
+.f24 {
+  font-size: 24rpx;
+}
+
+.f28 {
+  font-size: 28rpx;
+}
+
+.f30 {
+  font-size: 30rpx;
+}
+
+.f32 {
+  font-size: 32rpx;
+}
+
+.f34 {
+  font-size: 34rpx;
+}
+
+.f36 {
+  font-size: 36rpx;
+}
+
+.f38 {
+  font-size: 38rpx;
+}
+
+.f40 {
+  font-size: 40rpx;
+}
+
+.f44 {
+  font-size: 44rpx;
+}
+
+.f48 {
+  font-size: 48rpx;
+}
+
+.min {
+  font-size: 22rpx;
+}
+
+.minmin {
+  font-size: 18rpx;
+}
+
+.bradius4 {
+  border-radius: 4px;
+}
+
+.bradius2 {
+  border-radius: 2px;
+}
+
+.ellipsis2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.ellipsis1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  word-break: break-all;
+}
+
+.bb {
+  border-bottom: 1rpx solid #ececec;
+}
+
+.bbt {
+  border-top: 1rpx solid #ececec;
+}
+
+.ball {
+  border: 1rpx solid #ececec;
+}
+
+.minicon {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.boxsizing {
+  box-sizing: border-box;
+}
+```
