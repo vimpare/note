@@ -87,3 +87,38 @@ var longestCommonPrefix = function(strs) {
     return str 
 };
 ```
+38.报数
+```
+var countAndSay = function (n) {
+    if (n === 1) {
+        return '1'
+    }
+    var str = '11',
+        num = 1,
+        newstr = '';
+    for (var i = 2; i < n; i++) {
+        for (var j = 1; j < str.length; j++) {
+
+            if (str[j] === str[j - 1]) {
+                num++
+            } else {
+
+                newstr = newstr + num + str[j - 1]
+                num = 1
+            }
+            if (j == str.length - 1) {
+                newstr = newstr + num + str[j]
+            }
+        }
+        num = 1;
+        str = newstr;
+        newstr = '';
+
+
+    }
+
+    return str
+};
+
+console.log(countAndSay(5))
+```
