@@ -122,3 +122,10 @@ var countAndSay = function (n) {
 
 console.log(countAndSay(5))
 ```
+58 最后一个单词的长度
+```
+var lengthOfLastWord = function(s) {
+    var arr = s.trim().split(' ');
+    return arr[arr.length - 1].length
+};
+```
