@@ -248,6 +248,6 @@ js:
 | --------   | -----:   | :----: |: -------- :  | -----:   | 
 |src	|String		|图片资源地址，支持云文件ID（2.2.3起）	
 |mode	|String	|'scaleToFill'	|图片裁剪、缩放的模式	
-|lazy-load	|Boolean|	false|	|图片懒加载。只针对page与scroll-view下的image有效	1.5.0
+|lazy-load	|Boolean|	false	|图片懒加载。只针对page与scroll-view下的image有效	1.5.0
 |binderror	|HandleEvent|		|当错误发生时，发布到 AppService 的事件名，事件对象event.detail = {errMsg: 'something wrong'}	
 |bindload	|HandleEvent|		|当图片载入完毕时，发布到 AppService 的事件名，事件对象event.detail = {height:'图片高度px', width:'图片宽度px'}
