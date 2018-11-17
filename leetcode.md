@@ -129,3 +129,22 @@ var lengthOfLastWord = function(s) {
     return arr[arr.length - 1].length
 };
 ```
+125. 验证回文串
+```
+var isPalindrome = function(s) {
+    var re=/[^\u4e00-\u9fa5a-zA-Z0-9]/g
+    var str=s.toLowerCase().replace(re,'')
+    for(var i=0;i<str.length;i++){
+       if(str[i]!=str[str.length-1-i]){
+           return false
+       }
+    }
+    return true
+};;
+```
+344.反转字符串
+```
+var reverseString = function(s) {
+    return s.split('').reverse().join('')
+};
+```
