@@ -196,3 +196,34 @@ var canConstruct = function(ransomNote, magazine) {
     return true;
 };
 ```
+387. 字符串中的第一个唯一字符
+```
+自己：
+var firstUniqChar = function (s) {
+    let code = new Array(26).fill(0);
+    for (let i = 0; i < s.length; i++) {
+        code[s[i].charCodeAt(0) - 'a'.charCodeAt(0)]++;
+    }
+    for (let i = 0; i < s.length; i++) {
+        let index = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        if (code[index] == 1) {
+            return i;
+        }
+    }
+    return -1
+};
+```
+indexOf 
+stringObject.indexOf(searchvalue,fromindex)
+```
+他人
+var firstUniqChar = function(s) {
+   for(var i=0;i<s.length;i++){
+       var c=s.charAt(i);
+       if(s.indexOf(c)==i&&s.indexOf(c,i+1)==-1){
+           return i;
+       }
+   }
+    return -1;
+};
+```
