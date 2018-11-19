@@ -179,3 +179,20 @@ var canConstruct = function(r, m) {
     return true;
 };
 ```
+```
+64ms 原来还可以这样写 6666
+var canConstruct = function(ransomNote, magazine) {
+    let code = new Array(26).fill(0);
+    for (let i = 0; i < magazine.length; i++) {
+        code[magazine[i].charCodeAt(0) - 'a'.charCodeAt(0)]++;
+    }
+    for (let i = 0; i < ransomNote.length; i++) {
+        let index = ransomNote[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        code[index]--;
+        if (code[index] < 0) {
+            return false;
+        }
+    }
+    return true;
+};
+```
