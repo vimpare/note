@@ -148,3 +148,34 @@ var reverseString = function(s) {
     return s.split('').reverse().join('')
 };
 ```
+383. 赎金信
+```
+152ms
+var canConstruct = function(ransomNote, magazine) {
+    var arr=magazine.split('');
+    var len=arr.length;
+    for(var i=0;i<ransomNote.length;i++){
+        for(var j=0;j<arr.length;j++){
+            if(arr[j]==ransomNote[i]){
+                arr.splice(j,1)
+                break
+            }
+        }
+    }
+    return ransomNote.length+arr.length==len
+};
+```
+```
+96ms
+var canConstruct = function(r, m) {
+    m=m.split("");
+    for(var i=0; i< r.length; i++) {
+        if(m.indexOf(r[i]) == -1) {
+            return false;
+        } else {
+            m[m.indexOf(r[i])] = "fasdf";
+        }
+    }
+    return true;
+};
+```
