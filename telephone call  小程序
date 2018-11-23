@@ -1,0 +1,45 @@
+(function () {
+
+  String.prototype.telFilter = function () {
+    var str = this;
+    var reg = /[0-9]{7,}/g;
+    var result;
+    var phoneList = [];
+    if ((result = reg.exec(str)) == null) {
+      return [{
+        txt: str,
+        isTel: false
+      }];  
+    }
+    reg.lastIndex = 0
+    while ((result = reg.exec(str)) != null) {
+      phoneList.push({
+        tel: result[0],
+        index: result.index
+      })
+    }
+    var newARR = []
+    var first = 0;
+    var lastArrItem=phoneList[phoneList.length - 1];
+    for (var i = 0; i < phoneList.length; i++) {
+      var txt = '';
+      txt = str.substring(first, phoneList[i].index)
+      first = phoneList[i].index + phoneList[i].tel.length
+      newARR.push({
+        txt: txt,
+        isTel: false
+      }, {
+        txt: phoneList[i].tel,
+        isTel: phoneList[i].tel.length>25?false:true
+      })
+    }
+    newARR.push({
+      txt: str.substring(lastArrItem.index + lastArrItem.tel.length),
+      isTel: false
+    })
+    return newARR
+  };
+
+})();
+
+console.log('5432123456789098765432123890'.telFilter())
