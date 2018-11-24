@@ -227,3 +227,54 @@ var firstUniqChar = function(s) {
     return -1;
 };
 ```
+657. 机器人能否返回原点
+```
+var judgeCircle = function (moves) {
+    var o = {
+        R: [1, 0],
+        L: [-1, 0],
+        U: [0, 1],
+        D: [0, -1]
+    }
+    var num1 = 0,
+        num2 = 0;
+    for (var i = 0; i < moves.length; i++) {
+        var letter = moves[i];
+        num1 += o[letter][0];
+        num2 += o[letter][1]
+    }
+    console.log(num1, num2, num1 == num2)
+    return num1 == 0 && num2 == 0
+};
+```
+```
+他人
+var judgeCircle = function(moves) {
+    let x = 0;
+    let y = 0;
+    
+    let actions = moves.split('');
+    actions.forEach((act) => {
+        switch(act) {
+            case 'U': {
+                y++;
+                break;
+            }
+            case 'D': {
+                y--;
+                break;
+            }
+            case 'R': {
+                x++;
+                break;
+            }
+            case 'L': {
+                x--;
+                break;
+            }
+        }
+    })
+    
+    return x == 0 && y == 0;
+};
+```
