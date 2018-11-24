@@ -243,7 +243,7 @@ var judgeCircle = function (moves) {
         num1 += o[letter][0];
         num2 += o[letter][1]
     }
-    console.log(num1, num2, num1 == num2)
+    //不可连等
     return num1 == 0 && num2 == 0
 };
 ```
@@ -276,5 +276,27 @@ var judgeCircle = function(moves) {
     })
     
     return x == 0 && y == 0;
+};
+```
+804. 唯一摩尔斯密码词
+```
+// a 97 ~ z 122
+// 所以減去 96 就是在字母表的位置
+var uniqueMorseRepresentations = function (words) {
+    var mos = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."]
+    var mosArray = []
+
+    for (let i = 0; i < words.length; i++) {
+        var str = '';
+        for (let j in words[i]) {
+            var index = words[i].charCodeAt(j) - 96
+            str += mos[index - 1]
+        }
+        if (mosArray.indexOf(str) == -1) {
+            mosArray.push(str)
+        }
+      
+    }
+    return mosArray.length
 };
 ```
