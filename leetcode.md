@@ -300,3 +300,79 @@ var uniqueMorseRepresentations = function (words) {
     return mosArray.length
 };
 ```
+// 557. 反转字符串中的单词 III
+```
+var reverseWords = function (s) {
+    // 在字符串中，每个单词由单个空格分隔，并且字符串中不会有任何额外的空格。
+    var sArray = s.split(' ')
+    var revArray = []
+    sArray.map(function (item, i) {
+        var newItem = item.split('').reverse().join('')+' '
+        revArray.push(newItem)
+    })
+    return revArray.join('').replace(/(^\s*) | (\s*$)/g,'')
+
+};
+console.log(reverseWords("Let's take LeetCode contest"))
+var reverseWords = function(s) {
+    let words = s.split(' ');
+    
+    let newWords = []
+    words.forEach((word) => {
+        let str = '';
+        for (let i=word.length-1; i>=0; --i) {
+            str += word[i];
+        }
+        newWords.push(str);
+    });
+    
+    return newWords.join(' ');
+};
+console.log(reverseWords("Let's take LeetCode contest"))
+```
+// 824. 山羊拉丁文
+```
+var toGoatLatin = function(S) {
+    var sArray=S.split(' ')
+    var oArray=['a', 'e', 'i', 'o', 'u','A','E','I','O','U']
+    for(let i=0;i<sArray.length;i++){
+        var item=sArray[i];
+        if(oArray.indexOf(item[0])!=-1){
+            sArray[i]+='ma'
+        }else{
+            sArray[i]=item.substring(1)+item[0]+'ma'
+        }
+        for(let j=0;j<=i;j++){
+            sArray[i]+='a'
+        }
+    }
+    return sArray.join(' ')
+};
+console.log(toGoatLatin("The quick brown fox jumped over the lazy dog"))
+```
+// 788. 旋转数字
+```
+var rotatedDigits = function(N) {
+    var len = 0;
+    for( let i = 1; i <= N; i++ ) {
+        i += '';
+        if ( !( /[347]/g.test(i) ) && i.replace(/[018]/g, '').length  ) len++;
+    }
+   return len;
+};
+console.log(rotatedDigits(857))
+```
+// 520. 检测大写字母
+```
+var detectCapitalUse = function(word) {
+    if(word.toUpperCase()==word||word.toLowerCase()==word||word[0].toUpperCase()==word[0]&&word.substring(1).toLowerCase()==word.substring(1)){
+        return true
+    }
+    return false
+};
+console.log(detectCapitalUse("ERa"))
+// other
+var detectCapitalUse = function(word) {
+    return /(^[A-Z]+$)|(^[a-z]+$)|(^[A-Z][a-z]+$)/g.test(word);
+};
+```
