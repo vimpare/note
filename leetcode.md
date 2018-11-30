@@ -397,3 +397,31 @@ var mostCommonWord = function (paragraph, banned) {
     return last
 };
 ```
+// 349. 两个数组的交集
+```
+var intersection = function(nums1, nums2) {
+    var arr=[];
+    for(var i=0;i<nums1.length;i++){
+        if(nums2.indexOf(nums1[i])!=-1&&arr.indexOf(nums1[i])==-1){     
+            arr.push(nums1[i])
+        }
+    }
+    return arr
+    
+};
+console.log(intersection([4,9,5],[9,4,9,8,4]))
+```
+```
+let intersection = function(nums1, nums2) {
+    let set = new Set();
+    let res = [];
+    nums1.forEach(num => set.add(num));
+    nums2.forEach(num => {
+        if (set.has(num)) {
+            res.push(num);
+            set.delete(num);
+        }
+    })
+    return res;
+};
+```
