@@ -376,3 +376,24 @@ var detectCapitalUse = function(word) {
     return /(^[A-Z]+$)|(^[a-z]+$)|(^[A-Z][a-z]+$)/g.test(word);
 };
 ```
+// 819. 最常见的单词
+```
+var mostCommonWord = function (paragraph, banned) {
+    var par = paragraph.toLowerCase().replace(/[!?',;.]/g, ' ').split(' ').sort();
+    var o = {}
+    var num = 0
+    var last = ''
+    par.map(function (item, i) {
+        if (banned.indexOf(item) == -1) {
+            o[item] = o[item] ? o[item] + 1 : 1
+        }
+    })
+    for (j in o) {
+        if (o[j] > num&&j) {
+            num = o[j]
+            last = j
+        }
+    }
+    return last
+};
+```
