@@ -393,7 +393,22 @@ export function formatData(data) {
   return dataStr.substr(1) == "" ? "" : "?" + dataStr.substr(1);
 }
 
+http://bonsaiden.github.io/JavaScript-Garden/zh/
 
+js秘密花园
+删除属性  删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。
+
+当检查对象上某个属性是否存在时，hasOwnProperty 是唯一可用的方法。 同时在使用 for in loop 遍历对象时，推荐总是使用 hasOwnProperty 方法， 这将会避免原型对象扩展带来的干扰。
+
+
+es6新增 set  ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
+向Set加入值的时候，不会发生类型转换，所以5和"5"是两个不同的值。Set内部判断两个值是否不同，使用的算法叫做“Same-value equality”，它类似于精确相等运算符（===），主要的区别是NaN等于自身，而精确相等运算符认为NaN不等于自身。在Set内部，两个NaN是相等。
+Set实例的方法分为两大类：操作方法（用于操作数据）和遍历方法（用于遍历成员）。下面先介绍四个操作方法。
+```
+add(value)：添加某个值，返回Set结构本身。
+delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+has(value)：返回一个布尔值，表示该值是否为Set的成员。
+clear()：清除所有成员，没有返回值。
 
 
 
