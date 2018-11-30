@@ -425,3 +425,17 @@ let intersection = function(nums1, nums2) {
     return res;
 };
 ```
+// 242. 有效的字母异位词
+ ```
+ 
+var isAnagram = function (s, t) {
+    if (s.length != t.length) return false;
+    for (var i = 0; i < s.length; i++) {
+        var str = s[i]
+        if (t.indexOf(str)!=-1) {
+            t = t.replace(str, '')
+        }
+    }
+    return t?false:true
+};
+```
