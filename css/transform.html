@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 50%;
+            margin: 100px auto;
+        }
+
+        .tab {
+            display: inline-block;
+        }
+
+        .line {
+            width: 0;
+            height: 4px;
+            background: rgb(93, 93, 247);
+            margin: 10px auto;
+        }
+
+        .line.hover {
+            animation: mymove 1s;
+        }
+
+        .text:hover {
+            animation: mymove2 1s;
+        }
+
+        .text:hover+.line {
+            animation: mymove 1s;
+        }
+
+        @keyframes mymove {
+
+            50%,
+            70% {
+                padding: 0 50%;
+            }
+
+
+        }
+
+        @keyframes mymove2 {
+
+
+            50% {
+                color: rgb(93, 93, 247);
+            }
+
+
+        }
+
+        .box {
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            /* align-items:; */
+        }
+
+        .box div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #eee;
+        }
+
+        .box div:first-child {
+            transform: skew(30deg)
+        }
+        .box div:nth-child(2) {
+            transform: scale(0.5,1)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <div class="tab">
+                <div class="text">电影和电视</div>
+                <div class="line"></div>
+            </div>
+        </div>
+        <div class="box">
+            <div>box1</div>
+            <div>box2</div>
+            <div>box3</div>
+            <div>box4</div>
+
+        </div>
+
+
+    </div>
+    <script>
+        //    If a keyframe rule doesn't specify the start or end states of the animation (that is, 0%/from and 100%/to, browsers will use the element's existing styles for the start/end states. This can be used to animate an element from its initial state and back.
+        // transform:skew(30deg)歪斜
+        // transform: scale(0.5,1)比例
+    </script>
+</body>
+
+</html>
