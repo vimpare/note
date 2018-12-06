@@ -459,3 +459,10 @@ var countSegments = function(s) {
     return count;
 };
 ```
+// 551. 学生出勤纪录 
+```
+var checkRecord = function(s) {
+    var t=s.replace(/A/g,'')
+    return s.length-t.length<=1&&s.indexOf('LLL')==-1
+};
+```
