@@ -466,3 +466,32 @@ var checkRecord = function(s) {
     return s.length-t.length<=1&&s.indexOf('LLL')==-1
 };
 ```
+// 832. 翻转图像
+```
+var flipAndInvertImage = function(A) {
+    for(let i=0;i<A.length;i++){ 
+        let b=A[i].reverse()
+        for(let j=0;j<b.length;j++){
+           A[i][j]=b[j]?0:1
+        }
+
+    }
+    return A
+};
+flipAndInvertImage([[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]);
+```
+// 867. 转置矩阵
+```
+var transpose = function (A) {
+    var len = A[0].length,
+        b = new Array(len);
+    for (let i = 0; i < len; i++) {
+        b[i] = []
+        for (let j = 0; j < A.length; j++) {
+            b[i].push(A[j][i])
+        }
+    }
+   return b
+};
+transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+```
