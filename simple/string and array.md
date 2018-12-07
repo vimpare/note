@@ -495,3 +495,20 @@ var transpose = function (A) {
 };
 transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 ```
+// 561. 数组拆分
+```
+var arrayPairSum = function (nums) {
+    nums.sort(function (a, b) {
+        return a - b
+    })
+    // 用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的Unicode位点进行排序
+    var count = 0
+    for (var i = 0; i < nums.length; i++) {
+        if (i % 2 == 0) {
+            count += nums[i]
+        }
+    }
+    return count
+};
+arrayPairSum([6214, -2290, 2833, -7908])
+```
