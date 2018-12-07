@@ -1,8 +1,8 @@
 wx.uploadFile(OBJECT)
-Ë«¼ÓÃÜ
+åŒåŠ å¯†
 
 ====================================
-//·ÖÏí±í¸ñ
+//åˆ†äº«è¡¨æ ¼
   shareExel: function() {
     var data = {}
     data.qid = this.data.qid;
@@ -30,14 +30,14 @@ wx.uploadFile(OBJECT)
           wx.saveFile({
             tempFilePath: filePath,
             success: function(res) {
-              console.log('ÏÂÔØ', res.savedFilePath)
+              console.log('ä¸‹è½½', res.savedFilePath)
               var savedFilePath = res.savedFilePath
               
               // wx.openDocument({
               //   filePath: savedFilePath,
               //   fileType: 'xls',
               //   success: function(res) {
-              //     console.log('´ò¿ªÎÄµµ³É¹¦')
+              //     console.log('æ‰“å¼€æ–‡æ¡£æˆåŠŸ')
               //   },
               //   fail: function(res) {
               //     console.log(res);
@@ -62,7 +62,7 @@ wx.uploadFile(OBJECT)
           })
         },
         fail: function(res) {
-          console.log('ÎÄ¼şÏÂÔØÊ§°Ü');
+          console.log('æ–‡ä»¶ä¸‹è½½å¤±è´¥');
         },
         complete: function(res) {},
       })
@@ -71,19 +71,19 @@ wx.uploadFile(OBJECT)
   }
 ==========================================
 
-ÅĞ¶ÏÊÇ·ñÎªÎ¢ĞÅä¯ÀÀÆ÷µÄjs´úÂë£º
+åˆ¤æ–­æ˜¯å¦ä¸ºå¾®ä¿¡æµè§ˆå™¨çš„jsä»£ç ï¼š
 
 function downloaded(){
 			var ua = navigator.userAgent.toLowerCase();
 			if(ua.match(/MicroMessenger/i)=="micromessenger") {
-				alert("ÊÇ");
+				alert("æ˜¯");
 				
 			} else {
 				location.href="http://emoji.adline.com.cn/"
 			}
 		}
 
-//½ûÖ¹Ò³Ãæ¹ö¶¯
+//ç¦æ­¢é¡µé¢æ»šåŠ¨
 function downloaded(){
                 var ua = navigator.userAgent.toLowerCase();
                 // text.innerHTML=ua
@@ -95,7 +95,7 @@ function downloaded(){
                         e.preventDefault();
                     },false);
                 } else {
-                    text.innerHTML='ÎÒ²»ÊÇÎ¢ĞÅ'
+                    text.innerHTML='æˆ‘ä¸æ˜¯å¾®ä¿¡'
                 }
             }
 
