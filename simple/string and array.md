@@ -512,3 +512,21 @@ var arrayPairSum = function (nums) {
 };
 arrayPairSum([6214, -2290, 2833, -7908])
 ```
+// 118. 杨辉三角
+```
+var generate = function(numRows) {
+    var arr=[];
+    arr.length=numRows;
+    for(var i=0;i<arr.length;i++){
+        arr[i]=[];
+        arr[i].length=i+1;
+        arr[i][0]=1;
+        arr[i][arr[i].length-1]=1;
+        for(var j=1;j<arr[i].length-1;j++){
+            arr[i][j]=arr[i-1][j-1]+arr[i-1][j]
+        }
+    }
+    return arr
+};
+generate(1)
+```
