@@ -530,3 +530,27 @@ var generate = function(numRows) {
 };
 generate(1)
 ```
+// 119. 杨辉三角 II
+var getRow = function (rowIndex) {
+    // var arr=[];
+    // arr.length=rowIndex+1;
+    // for(var i=0;i<arr.length;i++){
+    //     arr[i]=[];
+    //     arr[i].length=i+1;
+    //     arr[i][0]=1;
+    //     arr[i][arr[i].length-1]=1;
+    //     for(var j=1;j<arr[i].length-1;j++){
+    //         arr[i][j]=arr[i-1][j-1]+arr[i-1][j]
+    //     }
+    // }
+    // return arr[rowIndex]
+    let res = new Array(rowIndex + 1).fill(1);
+    for (let i = 2; i <= rowIndex; ++i) {
+        for (let j = i - 1; j > 0; --j) {
+            console.log(res)
+            res[j] = res[j] + res[j - 1];
+        }
+    }
+    // console.log(res)
+};
+getRow(3)
