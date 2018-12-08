@@ -531,6 +531,7 @@ var generate = function(numRows) {
 generate(1)
 ```
 // 119. 杨辉三角 II
+```
 var getRow = function (rowIndex) {
     // var arr=[];
     // arr.length=rowIndex+1;
@@ -554,3 +555,4 @@ var getRow = function (rowIndex) {
     // console.log(res)
 };
 getRow(3)
+```
