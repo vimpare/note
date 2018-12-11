@@ -556,3 +556,51 @@ var getRow = function (rowIndex) {
 };
 getRow(3)
 ```
+// 566. 重塑矩阵
+```
+var matrixReshape = function (nums, r, c) {
+    let total = nums.length * nums[0].length,
+        rc = r * c;
+    if (rc != total) return nums;
+
+    var arr = [],
+        newArr = [];
+
+    for (let i = 0; i < r; i++) {
+        arr.push([]);
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+        newArr = newArr.concat(nums[i])
+    }
+
+    for(let j=0;j<newArr.length;j++){
+        arr[(j-j%c)/c][j%c] = newArr[j]
+    }
+   
+    return arr
+};
+console.log(matrixReshape([[1, 2], [3, 4],[5,6]], 6, 1))
+
+// 别人的：
+var matrixReshape = function(nums, r, c) {
+    if (nums.length * nums[0].length !== r * c) {
+        return nums;
+    }
+    
+    const res = [];
+    let newRow = [];
+    
+    nums.forEach(arr => {
+        arr.forEach(num => {
+            newRow.push(num);
+            if (newRow.length === c) {
+                res.push(newRow);
+                newRow = [];
+            }
+        });
+    });
+    
+    return res;
+};
+```
