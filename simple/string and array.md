@@ -604,3 +604,36 @@ var matrixReshape = function(nums, r, c) {
     return res;
 };
 ```
+169. 求众数
+```
+var majorityElement = function(nums) {
+    var o={};
+    for(let i=0;i<nums.length;i++){
+        var item=nums[i];
+        if(o[item]){
+            o[item]++
+        }else{
+            o[item]=1;
+        }
+        if(o[item]>(nums.length/2)){
+            return item
+        }       
+    }   
+};
+```
+别人的》》》没想到的方法，当count为0时，说明之前的数字个数相等。
+```
+let majorityElement = function(nums) {
+    let count = 0;
+    let candidate = 0;
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;
+        } 
+        count = candidate === num ? count + 1 : count - 1;
+    }
+    return candidate;
+};
+
+```
+
