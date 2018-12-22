@@ -97,7 +97,28 @@ Component({
   }
 })
 ```
+```
+.dhz-message {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  font-size: 30rpx;
+  z-index: 999;
+  color: #fff;
+  background: RGBA(230, 67, 64, 1);
+  opacity: 0;
+  -webkit-transform: translateZ(0) translateY(-100%);
+  transition: all 0.4s ease-in-out;
+}
 
+.dhz-message-show {
+  -webkit-transform: translateZ(0) translateY(0);
+  opacity: 1;
+}
+```
 在父组件中：
 ```
 const { $Message } = require('../../components/base/base');
