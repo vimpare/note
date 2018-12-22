@@ -36,3 +36,4 @@ Component({
   color: red;
 }
 ```
+父组件可以通过 ```this.selectComponent``` 方法获取子组件实例对象，这样就可以直接访问组件的任意数据和方法。
