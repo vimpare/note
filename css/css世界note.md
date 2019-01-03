@@ -22,3 +22,4 @@ color: #fff;
 }
 ```
 `https://demo.cssworld.cn/3/2-6.php`
+* 宽度分离
