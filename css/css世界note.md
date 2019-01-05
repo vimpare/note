@@ -23,3 +23,25 @@ color: #fff;
 ```
 `https://demo.cssworld.cn/3/2-6.php`
 * 宽度分离
+* `:focus 选择器` 选择获得焦点的输入字段，并设置其样式：
+```
+input:focus
+{ 
+background-color:yellow;
+}
+```
+
+
+CSS 重置
+```
+input, textarea, img, video, object {
+box-sizing: border-box;
+}
+```
+
+* 父级没有具体高度值的时候，height:100%会无效
+
+
+
+
+
