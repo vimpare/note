@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btn {
+            padding: 2rem 4rem;
+            border: 2px solid var(--color, black);
+            background: transparent;
+            font-size: 0.6em;
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+            background: var(--color, black);
+            color: white;
+        }
+
+        .btn.red {
+            --color: red
+        }
+
+        著作权归作者所有。
+    </style>
+</head>
+
+<body>
+    <button class="btn">Hello</button>
+    <button class="btn red">Hello</button>
+
+    <script>
+        /* 
+        定义CSS自定义属性:
+        在CSS中，一个CSS自定义属性是以两个破折号（--）开始的任何名称. 
+        .block { 
+            color: #8cacea; 
+            --color: blue;
+        }  可以是常规的CSS属性，但需要以两个破折号(`--`)开始 
+    
+        使用:root创建一个global自定义属性：
+
+        :root {
+
+        }
+        然后声明自定义属性：
+
+        :root {
+            --primary-color: red;
+        }
+
+        在CSS中使用已声明的CSS自定义属性，和在CSS处理器中使用声明的变量略有不同。你需要通过var()函数来引用已声明的CSS自定义属性著作权归作者所有。
+        使用CSS自定义属性时，只能在CSS属性值中使用CSS自定义属性。
+
+        这是一种错误的使用方式 
+        .margin {
+            --side: margin-top;
+            var(--size): 20px;
+        }
+
+        使用CSS自定义属性要做一些数学计算时，应该像下面这样通过calc()函数来完成：
+
+        .margin {
+            --space: calc(20px * 2);
+            font-size: var(--space);
+        }
+
+        CSS自定义属性可以在任意元素上，比如p、section、aside、根元素，甚至是伪元素上声明。他们都会按照预期进行工作著作权归作者所有。
+        CSS自定义属性可以通过继承和级联规则来解决
+        CSS自定义属性可以用在HTML元素的style属性中
+        不要在代码中创建具有循环依赖关系的CSS自定义属性。
+    
+        ie11不支持css自定义属性
+        
+    */
+    </script>
+</body>
+
+</html>
