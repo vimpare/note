@@ -76,6 +76,61 @@ box-sizing: border-box;
   （2）有自己的尺寸
   （3）在很多 CSS 属性上有自己的一套表现规则
 
+* **基于伪元素的图片内容生成技术** chrome and firefox
+    ```
+    img::after {
+        /* 生成 alt 信息 */
+        content: attr(alt);
+        /* 尺寸和定位 */
+        position: absolute; bottom: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,.5);
+        transform: translateY(100%);
+        /* 来点过渡动画效果 */
+        transition: transform .2s;
+    }
+    img:hover::after {
+        /* alt 信息显示 */
+        transform: translateY(0);
+    }
+    ```
+* **`:not()`**
+    设置非 `<p>` 元素的所有元素的背景色：
 
+    ```
+    :not(p)
+    { 
+        background-color: #ff0000;
+    }
+    ```
+    >所有主流浏览器均支持 :not 选择器，除了 IE8 及更早的版本。
+
+* **替换元素和非替换元素之间只隔了一个 CSS content 属性**
+  >在 Chrome浏览器下，所有的元素都支持 content 属性，而其他浏览器仅在`::before/::after `伪元素中才有支持
+
+
+  ```
+  img { content: url(1.jpg); }
+  ```
+    `<img>`
+结果和下面 HTML 的视觉效果一模一样：
+`<img src="1.jpg">`
+
+    * 可以实现 hover 图片变成另外一张图片的效果，但是当我们以右键或其他形式保存这张图片的时候，所保存的还是原来 src 对应的图片。
+
+    * 官网标题可以把文字换成图片
+     ```
+    h1 {
+        content: url(logo.png);
+    }
+    ```
+    但是使用 content 生成图片，我们是无法设置图片的尺寸的，只能迫不得已使用一倍图，然后导致图片看上去有点儿模糊，所以，要想在移动端使用该技术，建议使用 SVG 矢量图片。例如：
+    ```
+    h1 {
+        content: url(logo.svg);
+    }
+    ```
+* **我们使用 content 生成的文本是无法选中、无法复制的，好像设置了 `user-
+select:none` 声明一般**，但是普通元素的文本却可以被轻松选中。同时，content 生成的文本无法被屏幕阅读设备读取，也无法被搜索引擎抓取，因此，千万不要自以为是地把重要的文本信息使用 content 属性生成，因为这对可访问性和 SEO 都很不友好，content 属性只能用来生成一些无关紧要的内容，如装饰性图形或者序号之类；同样，也不要担心原本重要的文字信息会被 content 替换，替换的仅仅是视觉层。
 
 
