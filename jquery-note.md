@@ -1,4 +1,4 @@
-##jquery.uoloadPreview.js
+* jquery.uoloadPreview.js
 
 工作中需要上传图片到服务器，一开始原生写的js,遇到了问题，在ie8下发现删除图片无法清空input=file 的value值，后来改变写法采用了jQuery的uploadPreview。因为要控制上传图片的大小，依靠源文件无法变更，自己手动更改了条件：
 若是需要控制图片大小，则传入maxed为true，源文件便不再执行内部条件，须在外部js控制；之后发现，之所以不能清空value值，是因为用了$(this).value='',应该用原生js的input.value='';
@@ -35,13 +35,13 @@ eg:$(this).delay().fadeOut()
 
 * `$.ajax`读取文本内容：
 
-```
-$.ajax({
-      type: "get",
-      url: "1.txt",
-      dataType: "text",
-      async: true
-  }).done(function (data) {
-      $("#one").html(data.replace(/\r\n/ig, '</br>'));//替换回车行成换行符
-  });
-```
+   ```
+   $.ajax({
+         type: "get",
+         url: "1.txt",
+         dataType: "text",
+         async: true
+     }).done(function (data) {
+         $("#one").html(data.replace(/\r\n/ig, '</br>'));//替换回车行成换行符
+     });
+   ```
