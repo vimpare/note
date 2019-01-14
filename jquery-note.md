@@ -33,3 +33,15 @@ eg:$(this).delay().fadeOut()
 
 ```
 
+* `$.ajax`读取文本内容：
+
+```
+$.ajax({
+      type: "get",
+      url: "1.txt",
+      dataType: "text",
+      async: true
+  }).done(function (data) {
+      $("#one").html(data.replace(/\r\n/ig, '</br>'));//替换回车行成换行符
+  });
+```
