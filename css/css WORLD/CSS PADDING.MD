@@ -26,3 +26,14 @@ line-height: 20px;
 padding: 10px;
 }
 ```
+
+### background-clip 属性 ###
+
+  规定背景的绘制区域：
+  ```
+  background-clip:content-box;
+   background-clip: border-box|padding-box|content-box;
+  ```
+
+  >IE9+、Firefox、Opera、Chrome 以及 Safari 支持 background-clip 属性
+ 
