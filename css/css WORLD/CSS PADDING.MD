@@ -37,3 +37,26 @@ padding: 10px;
 
   >IE9+、Firefox、Opera、Chrome 以及 Safari 支持 background-clip 属性
  
+ “三道杠”和双层圆点图形效果:
+ ```
+ .icon-menu {
+display: inline-block;
+width: 140px; height: 10px;
+padding: 35px 0;
+border-top: 10px solid;
+border-bottom: 10px solid;
+background-color: currentColor;
+background-clip: content-box;
+}
+```
+```
+.icon-dot {
+display: inline-block;
+width: 100px; height: 100px;
+padding: 10px;
+border: 10px solid;
+border-radius: 50%;
+background-color: currentColor;
+background-clip: content-box;
+}
+```
