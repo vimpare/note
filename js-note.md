@@ -420,3 +420,22 @@ clear()：清除所有成员，没有返回值。
 
 
 ```
+拖放图片阻止浏览器默认行为：
+```
+ $('#J_preBox')[0].addEventListener("drop",function(e){  //拖离
+                    e.preventDefault();
+                    e.stopPropagation()
+                })
+                $('#J_preBox')[0].addEventListener("dragleave",function(e){  //拖后放
+                    e.preventDefault();
+                    e.stopPropagation()
+                })
+                $('#J_preBox')[0].addEventListener("dragenter",function(e){  //拖进
+                    e.preventDefault();
+                    e.stopPropagation()
+                })
+                $('#J_preBox')[0].addEventListener("dragover",function(e){  //拖来拖去
+                    e.preventDefault();
+                    e.stopPropagation()
+                })
+                ```
