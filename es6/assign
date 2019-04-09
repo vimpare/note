@@ -1,0 +1,2 @@
+Object.assign(that.data.addressItem,_resData.data)
+合并对象
