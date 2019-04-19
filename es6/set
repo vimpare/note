@@ -1,0 +1,7 @@
+###过滤唯一值###
+const array = [1, 2, 3, 3, 5, 5, 1];
+const uniqueArray = [...new Set(array)];
+
+console.log(uniqueArray); // [1, 2, 3, 5]
+
+这个技巧的适用范围是数组中的数值的类型为：undefined， null， boolean， string， number。当包涵object， function， array时，则不适用。
