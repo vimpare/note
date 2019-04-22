@@ -15,3 +15,6 @@ Object.create = Object.create || function( obj ){
 ```
 
 当对象无法响应某个请求时，会把该请求委托给它自己的原型。
+JavaScript中的根对象是Object.prototype对象
+
+ECMAScript 6带来了新的Class语法。这让JavaScript看起来像是一门基于类的语言，但其背后仍是通过原型机制来创建对象
