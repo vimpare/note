@@ -18,3 +18,35 @@ Object.create = Object.create || function( obj ){
 JavaScript中的根对象是Object.prototype对象
 
 ECMAScript 6带来了新的Class语法。这让JavaScript看起来像是一门基于类的语言，但其背后仍是通过原型机制来创建对象
+设计模式-状态模式
+
+设计模式
+
+状态模式的关键是区分事物内部的状态
+
+// OffLightState：
+var OffLightState = function (light) {
+    this.light = light;
+};
+OffLightState.prototype.buttonWasPressed = function () {
+    console.log('弱光'); // offLightState对应的行为   
+    this.light.setState(this.light.weakLightState); // 切换状态到weakLightState
+};
+//WeakLightState
+var WeakLightState = function (light) {
+    this.light = light;
+};
+WeakLightState.prototype.buttonWasPressed = function () {
+    console.log('强光');
+    // weakLightState对应的行为    
+    this.light.setState(this.light.strongLightState); // 切换状态到strongLightState
+};
+// StrongLightState：
+var StrongLightState = function (light) {
+    this.light = light;
+};
+StrongLightState.prototype.buttonWasPressed = function () {
+    console.log('关灯');
+    // strongLightState对应的行为    
+    this.light.setState(this.light.offLightState); // 切换状态到offLightState
+};
