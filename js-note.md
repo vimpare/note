@@ -1,5 +1,5 @@
-判断是否为微信浏览器的js代码：
-
+## 判断是否为微信浏览器的js代码：
+```
 function downloaded(){
             var ua = navigator.userAgent.toLowerCase();
             if(ua.match(/MicroMessenger/i)=="micromessenger") {
@@ -8,8 +8,9 @@ function downloaded(){
                 alert('不是')
             }
         }
-
-//禁止页面滚动
+```
+## 禁止页面滚动
+```
 function downloaded(){
                 var ua = navigator.userAgent.toLowerCase();
                 // text.innerHTML=ua
@@ -25,9 +26,10 @@ function downloaded(){
                 }
             }
 
-
+```
             
-//移动端rem
+### 移动端rem
+```
 window.onload = function(){
     /*720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
       为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等*/
@@ -41,8 +43,8 @@ function getRem(pwidth,prem){
     var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
     html.style.fontSize = oWidth/pwidth*prem + "px";
 }
-
-
+```
+```
 代码二： 小米官网的写法
 
 !function(n){
@@ -57,11 +59,11 @@ function getRem(pwidth,prem){
          };
          e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))
 }(window);
-
+```
 
 
 **原生js请求接口**
-
+```
     ajax({
             url: "./TestXHR.aspx",              //请求地址
             type: "POST",                       //请求方式
@@ -120,9 +122,10 @@ function getRem(pwidth,prem){
         arr.push(("v=" + Math.random()).replace(".",""));
         return arr.join("&");
     }
-
+```
 
 **js获取地址中的参数**
+
 ```
     functon GetUrlParam(paraName) {
 　　　　var url = document.location.toString();
@@ -175,6 +178,7 @@ function downloaded() {
 **将JavaScript对象转换为querystring查询字符串**
 
 ```
+```
 serialize = function(obj) {
   var str = [];
   for (var p in obj)
@@ -207,7 +211,7 @@ foo.hasOwnProperty('bar'); // 始终返回 false
 Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
 
 ```
-utils.js:
+ # utils.js:
 ```
 function formatTime(date,one) {
   if (!date) {
@@ -394,8 +398,8 @@ export function formatData(data) {
 }
 
 http://bonsaiden.github.io/JavaScript-Garden/zh/
-
-js秘密花园
+```
+# js秘密花园
 删除属性  删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。
 
 当检查对象上某个属性是否存在时，hasOwnProperty 是唯一可用的方法。 同时在使用 for in loop 遍历对象时，推荐总是使用 hasOwnProperty 方法， 这将会避免原型对象扩展带来的干扰。
@@ -438,7 +442,7 @@ clear()：清除所有成员，没有返回值。
                     e.preventDefault();
                     e.stopPropagation()
                 })
-                ```
+```
 字符串转数字：
 parseInt: 没有传入基数时，默认是传入的基数为 10 parseInt(num, 10)，如果你不知道 num 属性的类型，不要使用 parseInt 进行字符串转数字
 
